@@ -1,0 +1,35 @@
+Welcome to Adversary.
+Adversary is a Framework dedicated to wifi penetration testing all in a single script.
+It handles multiple things, though is still in Beta--so just wait a bit and more shall come.
+Adversary all runs through Scapy.
+It has 5 modules; disconnect, disconnect-b, fuzz, replay, and sniff--with more on the way.
+Disconnect, aka The Evictor sends deauthentication frames into the air, fixed on one target, (AP or 1 client) with reason 7.
+I will of course add more 'reasons' later.
+It also has a verbose mode to ensure that you actually shot them out.
+
+Disconnect-b, aka The Illusionist, is a beacon spamming tool. Beacon Frames are basically routers shouting,
+"Hey, I am here and connect to me!"
+and The Illusionist sends them out at extreme rates.
+It supports 'fuzzing' where the names (SSIDs) are randomized.
+I tried to make phones detect it as best they can, and both an Iphone 15 I tested and a Moto G Play 2026 with stock settings showed them in the Wifi select screen.
+Either way, it drains batteries and such.
+
+fuzz, aka The Banshee was the most annoying module to make so I am not going to dive into the tech of it, but it is a packet mutator and fuzzer as is mdk4's 'f' mode.
+It is verbose by default.
+I plan to add much more to The Banshee later.
+
+Replay, aka The Mimic (or theater kid) replays a .pcapng file (or .pcap) into the air. Not much to say.
+I tried my best to make it work on systems with low RAM when replaying multi gigabyte pcapng's (as scapy loads the whole thing into RAM by default) and it works well!
+I will add much more to it, of course, but it works well--though not over ethernet (i used send() instead of sendp()).
+
+Sniff, aka The Overseer (or Nosey Mailman) is a basic sniffer. It supports BPF filtering and channel hopping, and does not require monitor mode--though it is recommended.
+It sorts packets for you, (As in [DEAUTH], [PROBE REQ], etc) and can write to a .pcapng file under any name, though defaults to adversary_overseer.pcapng
+
+
+That's all the modules FOR NOW, and they will be improved in the future.
+Adversary is in Beta testing and is just now being sent out to github. It is not complete.
+
+Requires some dependencies, and runs only on Linux systems.
+
+Use legally and ethically.
+

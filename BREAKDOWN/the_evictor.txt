@@ -1,0 +1,6 @@
+The Evictor is a standard deauthentication suite.
+It forges deauth frames and blasts them into the air, in an attempt to disconnect clients.
+It, alongside the rest of Adversary, is in a beta stage--and therefore has some space for improvement.
+It currently disconnects clients with reason 7. I will implement being able to customize that soon.
+
+Ran via disconnect in the Adversary Framework

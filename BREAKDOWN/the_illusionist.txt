@@ -1,0 +1,13 @@
+The Illusionist is a beacon flood and spamming tool.
+As with everything else in Adversary, it has room for improvement.
+The Illusionist spams beacon frames (basically saying 'hey! I am a router! WHY CAN'T YOU LOVE ME!?!?!)
+It is what allows devices to 'see' routers, an advertisement.
+Devices inherently trust those, and therefore, sometimes, show them up in wifi selection screens.
+Even though sometimes, for some reason, they don't show, devices still recieve the influx of beacons.
+This means that their batteries often drain faster.
+
+The Illusionist has an option to 'fuzz' the names (randomize them) or spam one SSID.
+Devices typically have WiFi scan throttling on, so not all SSIDs may be parsed or shown.
+When off, usually via dev options, The Illusionist becomes an absolute monster to devices.
+
+Ran via disconnect-b in the Adversary Framework.

@@ -1,0 +1,12 @@
+The Overseer is a basic packet sniffing suite.
+The Overseer, as with everything in Adversary, is in beta and has room for improvement.
+Similar to Wireshark, The Overseer sniffs packets in the air, either to one's own device or, in case of monitor mode, everything.
+It allows BPF (berkerly packet filter) filtering, and tries to parse and organize packets.
+For example
+[PROBE REQ] Client FF:FF:FF:FF:FF:FF is searching for SSID: FOOBAR
+
+It also allows you to save packets into a .pcapng file under any name, but defaults to adversary_overseer.pcapng
+Monitor mode is not required.
+I will implement being able to OPEN pcaps with the sniffer.
+
+Ran via sniff in the Adversary framework.

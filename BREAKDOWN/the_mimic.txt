@@ -1,0 +1,10 @@
+The Mimic, aka Theater Kid, is a basic packet replay suite.
+As with everything else in Adversary, The Mimic has room for improvement.
+
+When fed a pcap file, preferably pcapng, The Mimic will replay whatever packets are inside of the pcapng.
+It works via the send() scapy function, so not ethernet.
+This is mainly so whatever MACs and artifacts are left in a packet are fixed and not dropped by the AP.
+It sends them into the air ruthlessly.
+
+There are many things that can be improved that I shall in the future.
+Ran via replay in the Adversary Framework.

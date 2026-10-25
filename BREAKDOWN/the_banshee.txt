@@ -1,0 +1,7 @@
+The Banshee is a basic packet fuzzer and mutation suite.
+As with everything else in Adversary, The Banshee is in beta and has room for improvement.
+
+The Banshee is a fuzzer, as previously mentioned, mutates packets in many ways.
+It usually turns packets into 'malformed' and such to try and crash devices, or do other various Denial Of Service esque things.
+The Banshee supports hopping through channels.
+Ran via fuzz in the Adversary Framework.
