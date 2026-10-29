@@ -248,8 +248,12 @@ def main_loop():
               print("\nending sniff.")
           except Exception as e:
               print(f"\n{RED}Error during sniffing: {e}{RESET}")
+              works = True
           finally:
-              print(f"Your nice little pcapng is written. {filename} ")
+            if not works:
+                print(f"{RED} Your pcapng is NOT written, I repeat, it is {BOLD} NOT {RESET} written.")
+                pass
+              print(f"{GREEN} Your nice little pcapng is written: {RED} {filename} {RESET}")
               if writer:
                   writer.close()
       elif cmd == 'clear':
@@ -362,7 +366,7 @@ def main_loop():
                       essid = Dot11Elt(ID="SSID", info=fake_name)
                       rates = Dot11Elt(ID="Rates", info=b"\x82\x84\x8b\x96")
                       channel_elt = Dot11Elt(ID="DSset", info=bytes([current_channel]))
-
+# i must admire scapy's elegant packet structure syntax
                       packet = RadioTap() / dot11 / beacon / essid / rates / channel_elt
 
                       try:

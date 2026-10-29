@@ -1,0 +1,45 @@
+Hi Aiden from Wallace, if you are reading this...
+
+To anyone else, that does not matter.
+
+But to EVERYONE, I have a new update soon to come.
+
+So yes, Adversary can capture the 4 way handshake to crack a password.
+But there is a problem--that requires 1 of 3 (or more) things:
+
+1. Running 2 instances of Adversary either in tmux or separate windows
+2. Deauthing then switching to sniffing to maybe catch aftershocks
+3. Running wireshark or my nemesis Bettercap to catch it
+
+And the whole purpose of adversary is to automate these things.
+SO, I am adding a new command! I could add an option to disconnect sort of like this
+Capture handshake? Y/N
+< y
+Deauthing, capturing handshakes.
+
+Sent deauth to client...
+
+And so on.
+But nah that isn't quite my tempo (WHIPLASH), disconnect is already gonna get some more options.
+SO, the command is going to be something like "disconnect-c" with c being for crack or capture.
+I think a good codename would be "The Extortionist" with the aka being Tenant From Hell.
+
+
+Okay, from here, I'm going into how it will be implemented.
+
+So, as you are maybe aware I will be updating 'disconnect'.
+And the way I am going to implement this is via calling to disconnect (maybe adding it into a def() block?)
+and then basically making 'sniff' again (OR CALLING TO IT?).
+Not technical, but the aka being Tenant From Hell actually works well as the 'tenant' might be disconnect in the context of this!
+I do not feel like cryptography (i quite literally say that in a startup message) so I'll either become what I hate and call to hashcat or JTR, or go through the agony of making a manual cryptography engine.
+
+I am aware that sniff already captures handshakes, as i verified it by filtering for eapol in the .pcapng file with wireshark and seeing them, but it doesn't do it AS it deauths.
+
+
+
+
+
+
+Anyways I wrote this really fast and did not care to format it well but yeah this is the future for Adversary.
+
+Maybe uhhhhh in 2 weeks max?
